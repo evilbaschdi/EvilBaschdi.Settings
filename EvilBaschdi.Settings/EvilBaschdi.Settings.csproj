@@ -7,6 +7,7 @@
     <Description>Microsoft.Extensions.Configuration Settings Wrapper</Description>
     <!-- ReSharper disable once UnknownProperty -->
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EvilBaschdi.Settings.xml</DocumentationFile>
+    <IsPackable>true</IsPackable>
     <LangVersion>8</LangVersion>
     <PackageIconUrl><![CDATA[https://avatars1.githubusercontent.com/u/1897807?s=120&v=4]]></PackageIconUrl>
     <PackageId>EvilBaschdi.Settings</PackageId>
