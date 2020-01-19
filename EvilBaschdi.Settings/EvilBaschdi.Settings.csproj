@@ -4,28 +4,24 @@
     <Authors>Sebastian Walter</Authors>
     <Company>evilbaschdi (Sebastian Walter)</Company>
     <Copyright>Copyright © 2019 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
-    <Description>Microsoft.Extensions.Configuration Settings Wrapper</Description>
     <!-- ReSharper disable once UnknownProperty -->
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EvilBaschdi.Settings.xml</DocumentationFile>
-    <IsPackable>true</IsPackable>
     <LangVersion>8</LangVersion>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl><![CDATA[https://avatars1.githubusercontent.com/u/1897807?s=120&v=4]]></PackageIconUrl>
-    <PackageId>EvilBaschdi.Settings</PackageId>
     <PackageProjectUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</PackageProjectUrl>
-    <PackageTags>Settings</PackageTags>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</RepositoryUrl>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <Title>EvilBaschdi.Settings</Title>
     <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))</Version>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2019.12.14.1448" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EvilBaschdi.Core" Version="2020.1.19.1004" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
