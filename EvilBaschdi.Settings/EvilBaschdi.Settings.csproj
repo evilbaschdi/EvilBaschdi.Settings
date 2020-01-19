@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))</Version>
+    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))-develop</Version>
     <Authors>Sebastian Walter</Authors>
     <Copyright>Copyright © 2019 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
     <LangVersion>8</LangVersion>
     <Company>evilbaschdi (Sebastian Walter)</Company>
     <PackageIcon>icon.png</PackageIcon>
+    <PackageIconUrl><![CDATA[https://avatars1.githubusercontent.com/u/1897807?s=120&v=4]]></PackageIconUrl>
     <PackageProjectUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</PackageProjectUrl>
     <RepositoryUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</RepositoryUrl>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EvilBaschdi.Settings.xml</DocumentationFile>
@@ -16,7 +17,7 @@
     <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2020.1.4.1203-develop" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2020.1.19.1004" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.1" />
