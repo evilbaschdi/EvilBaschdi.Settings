@@ -1,26 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))-develop</Version>
     <Authors>Sebastian Walter</Authors>
-    <Copyright>Copyright © 2019 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
-    <LangVersion>8</LangVersion>
     <Company>evilbaschdi (Sebastian Walter)</Company>
+    <Copyright>Copyright © 2019 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
+    <Description>Extension package for Microsoft.Extensions.Configuration</Description>
+    <!-- ReSharper disable once UnknownProperty -->
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EvilBaschdi.Settings.xml</DocumentationFile>
+    <IsPackable>true</IsPackable>
+    <LangVersion>8</LangVersion>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl><![CDATA[https://avatars1.githubusercontent.com/u/1897807?s=120&v=4]]></PackageIconUrl>
+    <PackageId>EvilBaschdi.Settings</PackageId>
     <PackageProjectUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</PackageProjectUrl>
+    <PackageTags>Settings</PackageTags>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/evilbaschdi/EvilBaschdi.Settings</RepositoryUrl>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\EvilBaschdi.Settings.xml</DocumentationFile>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5</TargetFrameworks>
+    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))-develop</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2020.5.3.1518" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0-preview.4.20251.6" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-preview.4.20251.6" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-preview.4.20251.6" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2020.9.15.1926-develop" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0-rc.1.20451.14" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0-rc.1.20451.14" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0-rc.1.20451.14" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
