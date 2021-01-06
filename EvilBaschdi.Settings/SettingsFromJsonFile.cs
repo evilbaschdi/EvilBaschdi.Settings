@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings
 {
-    /// <summary>
-    /// </summary>
+    /// <inheritdoc cref="ISettingsFromJsonFile" />
+    // ReSharper disable once UnusedType.Global
     public abstract class SettingsFromJsonFile : CachedValue<IConfiguration>, ISettingsFromJsonFile
     {
         /// <summary>
@@ -22,8 +22,6 @@ namespace EvilBaschdi.Settings
                          .Build();
         }
 
-        /// <summary>
-        /// </summary>
         private IConfiguration AppSetting { get; }
 
         /// <inheritdoc />
