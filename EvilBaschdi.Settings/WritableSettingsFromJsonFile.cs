@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 namespace EvilBaschdi.Settings
 {
     /// <inheritdoc cref="ISettingsFromJsonFile" />
+    // ReSharper disable once UnusedType.Global
     public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
     {
         /// <summary>
