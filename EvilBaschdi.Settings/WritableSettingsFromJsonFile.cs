@@ -16,14 +16,14 @@ namespace EvilBaschdi.Settings
         {
             var settingsFileNameInternal = settingsFileName ?? throw new ArgumentNullException(nameof(settingsFileName));
             AppSetting = new ConfigurationBuilder().Add(
-                (Action<WritableJsonConfigurationSource>) (s =>
-                                                           {
-                                                               s.FileProvider = null;
-                                                               s.Path = settingsFileNameInternal;
-                                                               s.Optional = false;
-                                                               s.ReloadOnChange = true;
-                                                               s.ResolveFileProvider();
-                                                           })).Build();
+                (Action<WritableJsonConfigurationSource>)(s =>
+                                                          {
+                                                              s.FileProvider = null;
+                                                              s.Path = settingsFileNameInternal;
+                                                              s.Optional = false;
+                                                              s.ReloadOnChange = true;
+                                                              s.ResolveFileProvider();
+                                                          })).Build();
         }
 
 

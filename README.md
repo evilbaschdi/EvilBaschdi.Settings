@@ -1,5 +1,6 @@
 # EvilBaschdi.Settings
-MyGet Feed for NuGet Package: https://www.myget.org/F/evilbaschdi/api/v3/index.json
+
+MyGet Feed for NuGet Package: <https://www.myget.org/F/evilbaschdi/api/v3/index.json>
 
 
 | main | develop |
