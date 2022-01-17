@@ -26,7 +26,6 @@ namespace EvilBaschdi.Settings
                                                           })).Build();
         }
 
-
         private IConfiguration AppSetting { get; }
 
         /// <inheritdoc />

@@ -4,8 +4,8 @@ using AutoFixture.Idioms;
 using EvilBaschdi.Testing;
 using FluentAssertions;
 using Xunit;
-#pragma warning restore CS0105 // Using directive appeared previously in this namespace
 
+#pragma warning restore CS0105 // Using directive appeared previously in this namespace
 
 namespace EvilBaschdi.Settings.Tests
 {

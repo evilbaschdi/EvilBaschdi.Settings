@@ -6,6 +6,7 @@ using EvilBaschdi.Testing;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration.Json;
 using Xunit;
+
 #pragma warning restore CS0105 // Using directive appeared previously in this namespace
 
 namespace EvilBaschdi.Settings.Tests.Internal
