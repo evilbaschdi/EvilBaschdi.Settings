@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using JetBrains.Annotations;
-using Microsoft.Extensions.Configuration.Json;
+﻿using Microsoft.Extensions.Configuration.Json;
 using Newtonsoft.Json;
 
 namespace EvilBaschdi.Settings.Internal;
@@ -19,7 +16,7 @@ public class WritableJsonConfigurationProvider : JsonConfigurationProvider
     }
 
     /// <inheritdoc />
-    public override void Set([NotNull] string key, [NotNull] string value)
+    public override void Set(string key, string value)
     {
         if (key == null)
         {
@@ -34,7 +31,17 @@ public class WritableJsonConfigurationProvider : JsonConfigurationProvider
         base.Set(key, value);
 
         //Get Whole json file and change only passed key with passed value. It requires modification if you need to support change multi level json structure
+        if (Source.FileProvider == null || Source.Path == null || Source.FileProvider == null)
+        {
+            return;
+        }
+
         var fileFullPath = Source.FileProvider.GetFileInfo(Source.Path).PhysicalPath;
+        if (fileFullPath == null)
+        {
+            return;
+        }
+
         var json = File.ReadAllText(fileFullPath);
         dynamic jsonObj = JsonConvert.DeserializeObject(json);
         if (jsonObj == null)

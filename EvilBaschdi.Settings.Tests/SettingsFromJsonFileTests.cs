@@ -1,11 +1,7 @@
-﻿#pragma warning disable CS0105 // Using directive appeared previously in this namespace
-using System.Linq;
-using AutoFixture.Idioms;
+﻿using AutoFixture.Idioms;
 using EvilBaschdi.Testing;
 using FluentAssertions;
 using Xunit;
-
-#pragma warning restore CS0105 // Using directive appeared previously in this namespace
 
 namespace EvilBaschdi.Settings.Tests;
 

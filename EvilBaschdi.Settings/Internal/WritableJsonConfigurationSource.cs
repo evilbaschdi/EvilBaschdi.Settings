@@ -1,6 +1,4 @@
-﻿using System;
-using JetBrains.Annotations;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 
 namespace EvilBaschdi.Settings.Internal;
@@ -9,7 +7,7 @@ namespace EvilBaschdi.Settings.Internal;
 public class WritableJsonConfigurationSource : JsonConfigurationSource
 {
     /// <inheritdoc />
-    public override IConfigurationProvider Build([NotNull] IConfigurationBuilder builder)
+    public override IConfigurationProvider Build(IConfigurationBuilder builder)
     {
         if (builder == null)
         {

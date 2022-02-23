@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using EvilBaschdi.Core;
+﻿using EvilBaschdi.Core;
 using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings;

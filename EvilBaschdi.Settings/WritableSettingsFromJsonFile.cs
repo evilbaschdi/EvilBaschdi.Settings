@@ -1,5 +1,4 @@
-﻿using System;
-using EvilBaschdi.Settings.Internal;
+﻿using EvilBaschdi.Settings.Internal;
 using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings;
