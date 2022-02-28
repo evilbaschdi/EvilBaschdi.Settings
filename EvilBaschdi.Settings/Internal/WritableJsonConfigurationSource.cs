@@ -1,23 +1,20 @@
-﻿using System;
-using JetBrains.Annotations;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 
-namespace EvilBaschdi.Settings.Internal
+namespace EvilBaschdi.Settings.Internal;
+
+/// <inheritdoc />
+public class WritableJsonConfigurationSource : JsonConfigurationSource
 {
     /// <inheritdoc />
-    public class WritableJsonConfigurationSource : JsonConfigurationSource
+    public override IConfigurationProvider Build(IConfigurationBuilder builder)
     {
-        /// <inheritdoc />
-        public override IConfigurationProvider Build([NotNull] IConfigurationBuilder builder)
+        if (builder == null)
         {
-            if (builder == null)
-            {
-                throw new ArgumentNullException(nameof(builder));
-            }
-
-            EnsureDefaults(builder);
-            return new WritableJsonConfigurationProvider(this);
+            throw new ArgumentNullException(nameof(builder));
         }
+
+        EnsureDefaults(builder);
+        return new WritableJsonConfigurationProvider(this);
     }
 }
