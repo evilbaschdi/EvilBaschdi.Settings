@@ -1,4 +1,5 @@
 ﻿using EvilBaschdi.Settings.Internal;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings;
@@ -11,14 +12,18 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
     ///     Constructor
     /// </summary>
     /// <param name="settingsFileName"></param>
-    protected WritableSettingsFromJsonFile(string settingsFileName)
+    protected WritableSettingsFromJsonFile([NotNull] string settingsFileName)
     {
-        var settingsFileNameInternal = settingsFileName ?? throw new ArgumentNullException(nameof(settingsFileName));
+        if (settingsFileName == null)
+        {
+            throw new ArgumentNullException(nameof(settingsFileName));
+        }
+
         AppSetting = new ConfigurationBuilder().Add(
             (Action<WritableJsonConfigurationSource>)(s =>
                                                       {
                                                           s.FileProvider = null;
-                                                          s.Path = settingsFileNameInternal;
+                                                          s.Path = settingsFileName;
                                                           s.Optional = false;
                                                           s.ReloadOnChange = true;
                                                           s.ResolveFileProvider();
