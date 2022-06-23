@@ -42,15 +42,30 @@ public class WritableJsonConfigurationProvider : JsonConfigurationProvider
             return;
         }
 
-        var json = File.ReadAllText(fileFullPath);
-        dynamic jsonObj = JsonConvert.DeserializeObject(json);
-        if (jsonObj == null)
+        string output;
+        if (File.Exists(fileFullPath))
         {
-            return;
+            var json = File.ReadAllText(fileFullPath);
+
+            dynamic jsonObj = JsonConvert.DeserializeObject(json);
+            if (jsonObj == null)
+            {
+                return;
+            }
+
+            jsonObj[key] = value;
+            output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
+        }
+        else
+        {
+            var dict = new Dictionary<string, string>
+                       {
+                           { key, value }
+                       };
+
+            output = JsonConvert.SerializeObject(dict);
         }
 
-        jsonObj[key] = value;
-        string output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
         File.WriteAllText(fileFullPath, output);
     }
 }

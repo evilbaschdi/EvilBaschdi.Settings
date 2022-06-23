@@ -12,7 +12,8 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
     ///     Constructor
     /// </summary>
     /// <param name="settingsFileName"></param>
-    protected WritableSettingsFromJsonFile([NotNull] string settingsFileName)
+    /// <param name="optional"></param>
+    protected WritableSettingsFromJsonFile([NotNull] string settingsFileName, bool optional = false)
     {
         if (settingsFileName == null)
         {
@@ -24,7 +25,7 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
                                                       {
                                                           s.FileProvider = null;
                                                           s.Path = settingsFileName;
-                                                          s.Optional = false;
+                                                          s.Optional = optional;
                                                           s.ReloadOnChange = true;
                                                           s.ResolveFileProvider();
                                                       })).Build();

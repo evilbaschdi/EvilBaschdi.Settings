@@ -1,9 +1,4 @@
-﻿using AutoFixture.Idioms;
-using EvilBaschdi.Testing;
-using FluentAssertions;
-using Xunit;
-
-namespace EvilBaschdi.Settings.Tests;
+﻿namespace EvilBaschdi.Settings.Tests;
 
 public class WritableSettingsFromJsonFileTests
 {
