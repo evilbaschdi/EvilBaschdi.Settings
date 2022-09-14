@@ -1,4 +1,7 @@
-﻿namespace EvilBaschdi.Settings.Tests;
+﻿using EvilBaschdi.Core;
+using Microsoft.Extensions.Configuration;
+
+namespace EvilBaschdi.Settings.Tests;
 
 public class SettingsFromJsonFileTests
 {
@@ -12,6 +15,7 @@ public class SettingsFromJsonFileTests
     public void Constructor_ReturnsInterfaceName(SettingsFromJsonFile sut)
     {
         sut.Should().BeAssignableTo<ISettingsFromJsonFile>();
+        sut.Should().BeAssignableTo<CachedValue<IConfiguration>>();
     }
 
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]

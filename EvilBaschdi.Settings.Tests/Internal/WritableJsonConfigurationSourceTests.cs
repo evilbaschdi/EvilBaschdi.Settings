@@ -14,7 +14,7 @@ public class WritableJsonConfigurationSourceTests
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
     public void Constructor_ReturnsInterfaceName(WritableJsonConfigurationSource sut)
     {
-        sut.Should().BeAssignableTo<JsonConfigurationProvider>();
+        sut.Should().BeAssignableTo<JsonConfigurationSource>();
     }
 
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
