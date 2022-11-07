@@ -50,5 +50,4 @@
 		<ProjectReference Include="..\EvilBaschdi.Settings\EvilBaschdi.Settings.csproj" />
 	</ItemGroup>
 
-
 </Project>
