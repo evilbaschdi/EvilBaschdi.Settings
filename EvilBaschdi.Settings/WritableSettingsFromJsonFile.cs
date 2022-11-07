@@ -1,5 +1,4 @@
 ﻿using EvilBaschdi.Settings.Internal;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings;
