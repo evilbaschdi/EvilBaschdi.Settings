@@ -1,7 +1,7 @@
-﻿using EvilBaschdi.Settings.Internal;
+﻿using EvilBaschdi.Settings.Writable.Internal;
 using Microsoft.Extensions.Configuration;
 
-namespace EvilBaschdi.Settings;
+namespace EvilBaschdi.Settings.Writable;
 
 /// <inheritdoc cref="ISettingsFromJsonFile" />
 // ReSharper disable once UnusedType.Global

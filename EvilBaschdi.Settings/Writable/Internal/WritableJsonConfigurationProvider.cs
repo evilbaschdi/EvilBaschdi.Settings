@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration.Json;
 using Newtonsoft.Json;
 
-namespace EvilBaschdi.Settings.Internal;
+namespace EvilBaschdi.Settings.Writable.Internal;
 
 /// <inheritdoc />
 public class WritableJsonConfigurationProvider : JsonConfigurationProvider

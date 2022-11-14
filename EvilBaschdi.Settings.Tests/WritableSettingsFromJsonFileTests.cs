@@ -1,4 +1,6 @@
-﻿namespace EvilBaschdi.Settings.Tests;
+﻿using EvilBaschdi.Settings.Writable;
+
+namespace EvilBaschdi.Settings.Tests;
 
 public class WritableSettingsFromJsonFileTests
 {

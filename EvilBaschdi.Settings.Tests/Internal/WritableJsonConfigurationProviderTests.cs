@@ -1,5 +1,6 @@
-﻿using EvilBaschdi.Settings.Internal;
-using Microsoft.Extensions.Configuration.Json;
+﻿using Microsoft.Extensions.Configuration.Json;
+
+Json;
 
 namespace EvilBaschdi.Settings.Tests.Internal;
 
@@ -20,6 +21,7 @@ public class WritableJsonConfigurationProviderTests
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
     public void Methods_HaveNullGuards(GuardClauseAssertion assertion)
     {
-        assertion.Verify(typeof(WritableJsonConfigurationProvider).GetMethods().Where(method => !method.IsAbstract));
+        assertion.Verify(typeof(WritableJsonConfigurationProvider).GetMethods().Where(method => !method.IsAbstract)
+
     }
 }
