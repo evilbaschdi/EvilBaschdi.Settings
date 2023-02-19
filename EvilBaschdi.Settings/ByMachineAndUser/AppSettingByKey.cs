@@ -1,4 +1,7 @@
-﻿namespace EvilBaschdi.Settings.ByMachineAndUser;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
+
+namespace EvilBaschdi.Settings.ByMachineAndUser;
 
 /// <inheritdoc />
 public class AppSettingByKey : IAppSettingByKey
@@ -29,12 +32,12 @@ public class AppSettingByKey : IAppSettingByKey
         var fallbackConfiguration = _appSettingsFromJsonFile.Value;
         var currentConfiguration = _appSettingsFromJsonFileByMachineAndUser.Value;
 
-        var fallbackInitialDirectory = fallbackConfiguration?[key];
-        var currentInitialDirectory = currentConfiguration?[key];
+        var fallbackValue = fallbackConfiguration?[key];
+        var currentValue = currentConfiguration?[key];
 
-        return !string.IsNullOrWhiteSpace(currentInitialDirectory)
-            ? currentInitialDirectory
-            : fallbackInitialDirectory;
+        return !string.IsNullOrWhiteSpace(currentValue)
+            ? currentValue
+            : fallbackValue;
     }
 
     /// <exception cref="ArgumentNullException"></exception>
@@ -48,5 +51,36 @@ public class AppSettingByKey : IAppSettingByKey
 
         var configuration = _appSettingsFromJsonFileByMachineAndUser.Value;
         configuration[key] = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    /// <inheritdoc />
+    public TOut ValueFor<TOut>(string key)
+    {
+        var fallbackConfiguration = _appSettingsFromJsonFile.Value;
+        var currentConfiguration = _appSettingsFromJsonFileByMachineAndUser.Value;
+
+        if (fallbackConfiguration == null)
+        {
+            return default;
+        }
+
+        var fallbackValue = fallbackConfiguration.GetSection(key).Get<TOut>();
+
+        return currentConfiguration == null || currentConfiguration.GetSection(key).Get<TOut>() == null ? fallbackValue : currentConfiguration.GetSection(key).Get<TOut>();
+    }
+
+    /// <inheritdoc />
+    public void RunFor<TIn>(string key, TIn value)
+    {
+        var settingsFileName = _appSettingsFromJsonFileByMachineAndUser.SettingsFileName;
+        var settings = File.ReadAllText(!File.Exists(settingsFileName) ? _appSettingsFromJsonFile.SettingsFileName : settingsFileName);
+
+        var jObject = JObject.Parse(settings);
+        jObject[key] = JToken.FromObject(value);
+
+        if (settingsFileName != null)
+        {
+            File.WriteAllText(settingsFileName, jObject.ToString());
+        }
     }
 }

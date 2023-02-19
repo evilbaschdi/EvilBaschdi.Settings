@@ -19,6 +19,7 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
             throw new ArgumentNullException(nameof(settingsFileName));
         }
 
+        SettingsFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, settingsFileName);
         AppSetting = new ConfigurationBuilder().Add(
             (Action<WritableJsonConfigurationSource>)(s =>
                                                       {
@@ -34,4 +35,7 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
 
     /// <inheritdoc />
     public IConfiguration Value => AppSetting;
+
+    /// <inheritdoc />
+    public string SettingsFileName { get; }
 }
