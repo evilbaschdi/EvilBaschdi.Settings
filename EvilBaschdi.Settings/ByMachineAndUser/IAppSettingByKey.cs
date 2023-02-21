@@ -5,9 +5,11 @@
 public interface IAppSettingByKey : IValueFor<string, string>, IRunFor2<string, string>
 {
     /// <summary>Value</summary>
+    // ReSharper disable once UnusedMember.Global
     TOut ValueFor<TOut>(string key);
 
     /// <summary>
     /// </summary>
+    // ReSharper disable once UnusedMember.Global
     void RunFor<TIn>(string key, TIn value);
 }
