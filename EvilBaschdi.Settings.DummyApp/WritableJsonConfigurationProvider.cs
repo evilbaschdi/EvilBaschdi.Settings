@@ -1,33 +1,17 @@
 ﻿using Microsoft.Extensions.Configuration.Json;
 using Newtonsoft.Json;
 
-namespace EvilBaschdi.Settings.Internal;
+namespace EvilBaschdi.Settings.DummyApp;
 
-/// <inheritdoc />
 public class WritableJsonConfigurationProvider : JsonConfigurationProvider
 {
-    /// <summary>
-    ///     Constructor
-    /// </summary>
-    /// <param name="source"></param>
     public WritableJsonConfigurationProvider(JsonConfigurationSource source)
         : base(source)
     {
     }
 
-    /// <inheritdoc />
     public override void Set(string key, string value)
     {
-        if (key == null)
-        {
-            throw new ArgumentNullException(nameof(key));
-        }
-
-        if (value == null)
-        {
-            throw new ArgumentNullException(nameof(value));
-        }
-
         base.Set(key, value);
 
         //Get Whole json file and change only passed key with passed value. It requires modification if you need to support change multi level json structure

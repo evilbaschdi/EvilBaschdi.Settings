@@ -1,7 +1,7 @@
-﻿using EvilBaschdi.Settings.Internal;
+﻿using EvilBaschdi.Settings.Writable.Internal;
 using Microsoft.Extensions.Configuration;
 
-namespace EvilBaschdi.Settings;
+namespace EvilBaschdi.Settings.Writable;
 
 /// <inheritdoc cref="ISettingsFromJsonFile" />
 // ReSharper disable once UnusedType.Global
@@ -11,15 +11,21 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
     ///     Constructor
     /// </summary>
     /// <param name="settingsFileName"></param>
-    protected WritableSettingsFromJsonFile(string settingsFileName)
+    /// <param name="optional"></param>
+    protected WritableSettingsFromJsonFile([NotNull] string settingsFileName, bool optional = false)
     {
-        var settingsFileNameInternal = settingsFileName ?? throw new ArgumentNullException(nameof(settingsFileName));
+        if (settingsFileName == null)
+        {
+            throw new ArgumentNullException(nameof(settingsFileName));
+        }
+
+        SettingsFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, settingsFileName);
         AppSetting = new ConfigurationBuilder().Add(
             (Action<WritableJsonConfigurationSource>)(s =>
                                                       {
                                                           s.FileProvider = null;
-                                                          s.Path = settingsFileNameInternal;
-                                                          s.Optional = false;
+                                                          s.Path = settingsFileName;
+                                                          s.Optional = optional;
                                                           s.ReloadOnChange = true;
                                                           s.ResolveFileProvider();
                                                       })).Build();
@@ -29,4 +35,7 @@ public abstract class WritableSettingsFromJsonFile : ISettingsFromJsonFile
 
     /// <inheritdoc />
     public IConfiguration Value => AppSetting;
+
+    /// <inheritdoc />
+    public string SettingsFileName { get; }
 }

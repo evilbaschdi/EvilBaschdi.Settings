@@ -1,5 +1,4 @@
-﻿using EvilBaschdi.Core;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings;
 
@@ -11,12 +10,17 @@ public abstract class SettingsFromJsonFile : CachedValue<IConfiguration>, ISetti
     ///     Constructor
     /// </summary>
     /// <param name="settingsFileName"></param>
-    protected SettingsFromJsonFile(string settingsFileName)
+    protected SettingsFromJsonFile([NotNull] string settingsFileName)
     {
-        var settingsFileNameInternal = settingsFileName ?? throw new ArgumentNullException(nameof(settingsFileName));
+        if (settingsFileName == null)
+        {
+            throw new ArgumentNullException(nameof(settingsFileName));
+        }
+
+        SettingsFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, settingsFileName);
         AppSetting = new ConfigurationBuilder()
                      .SetBasePath(Directory.GetCurrentDirectory())
-                     .AddJsonFile(settingsFileNameInternal)
+                     .AddJsonFile(settingsFileName)
                      .Build();
     }
 
@@ -24,4 +28,7 @@ public abstract class SettingsFromJsonFile : CachedValue<IConfiguration>, ISetti
 
     /// <inheritdoc />
     protected override IConfiguration NonCachedValue => AppSetting;
+
+    /// <inheritdoc />
+    public string SettingsFileName { get; }
 }

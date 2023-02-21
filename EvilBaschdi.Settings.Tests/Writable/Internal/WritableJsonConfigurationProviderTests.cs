@@ -1,11 +1,7 @@
-﻿using AutoFixture.Idioms;
-using EvilBaschdi.Settings.Internal;
-using EvilBaschdi.Testing;
-using FluentAssertions;
+﻿using EvilBaschdi.Settings.Writable.Internal;
 using Microsoft.Extensions.Configuration.Json;
-using Xunit;
 
-namespace EvilBaschdi.Settings.Tests.Internal;
+namespace EvilBaschdi.Settings.Tests.Writable.Internal;
 
 public class WritableJsonConfigurationProviderTests
 {

@@ -1,7 +1,5 @@
-﻿using AutoFixture.Idioms;
-using EvilBaschdi.Testing;
-using FluentAssertions;
-using Xunit;
+﻿using EvilBaschdi.Core;
+using Microsoft.Extensions.Configuration;
 
 namespace EvilBaschdi.Settings.Tests;
 
@@ -17,6 +15,7 @@ public class SettingsFromJsonFileTests
     public void Constructor_ReturnsInterfaceName(SettingsFromJsonFile sut)
     {
         sut.Should().BeAssignableTo<ISettingsFromJsonFile>();
+        sut.Should().BeAssignableTo<CachedValue<IConfiguration>>();
     }
 
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
