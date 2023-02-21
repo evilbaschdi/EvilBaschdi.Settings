@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EvilBaschdi.Core" Version="2023.2.1.1815-develop" />
+		<PackageReference Include="EvilBaschdi.Core" Version="2023.2.21.1731" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
@@ -56,12 +56,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="**\*.cs">
-			<DependentUpon>$([System.String]::Copy(I%(Filename).cs))</DependentUpon>
-		</Compile>
 	</ItemGroup>
 
 </Project>
