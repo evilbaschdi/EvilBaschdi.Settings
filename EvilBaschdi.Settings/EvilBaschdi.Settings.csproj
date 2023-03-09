@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EvilBaschdi.Core" Version="2023.2.21.1909-develop" />
+		<PackageReference Include="EvilBaschdi.Core" Version="2023.3.9.1752-develop" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0-preview.1.23110.8" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0-preview.1.23110.8" />
