@@ -56,6 +56,11 @@ public class AppSettingByKey : IAppSettingByKey
     /// <inheritdoc />
     public TOut ValueFor<TOut>(string key)
     {
+        if (key is null)
+        {
+            throw new ArgumentNullException(nameof(key));
+        }
+
         var fallbackConfiguration = _appSettingsFromJsonFile.Value;
         var currentConfiguration = _appSettingsFromJsonFileByMachineAndUser.Value;
 
@@ -72,6 +77,11 @@ public class AppSettingByKey : IAppSettingByKey
     /// <inheritdoc />
     public void RunFor<TIn>(string key, TIn value)
     {
+        if (key is null)
+        {
+            throw new ArgumentNullException(nameof(key));
+        }
+
         var settingsFileName = _appSettingsFromJsonFileByMachineAndUser.SettingsFileName;
         var settings = File.ReadAllText(!File.Exists(settingsFileName) ? _appSettingsFromJsonFile.SettingsFileName : settingsFileName);
 

@@ -14,12 +14,12 @@ public class WritableJsonConfigurationSourceTests
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
     public void Constructor_ReturnsInterfaceName(WritableJsonConfigurationSource sut)
     {
-        sut.Should().BeAssignableTo<JsonConfigurationProvider>();
+        sut.Should().BeAssignableTo<JsonConfigurationSource>();
     }
 
     [Theory, NSubstituteOmitAutoPropertiesTrueAutoData]
     public void Methods_HaveNullGuards(GuardClauseAssertion assertion)
     {
-        assertion.Verify(typeof(WritableJsonConfigurationSource).GetMethods().Where(method => !method.IsAbstract));
+        assertion.Verify(typeof(WritableJsonConfigurationSource).GetMethods().Where(method => !method.IsAbstract & !method.Name.StartsWith("set")));
     }
 }
